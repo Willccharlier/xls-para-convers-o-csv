@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title id="page-title"></title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(45deg, #1abc9c, #2c3e50);
+            color: #ecf0f1;
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .btn-custom {
+            background-color: #2980b9;
+            color: #ecf0f1;
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: #3498db;
+            color: #ecf0f1;
+        }
+        .custom-file-input:lang(en)~.custom-file-label::after {
+            content: "Browse";
+            color: #ecf0f1;
+            background-color: #2980b9;
+        }
+        .custom-file-label {
+            background-color: #34495e;
+            color: #ecf0f1;
+            border: none;
+        }
+        .custom-file-label::after {
+            color: #ecf0f1;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="main-heading"></h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="document" name="document" required>
+                    <label class="custom-file-label" for="document">Escolha o arquivo</label>
+                </div>
+            </div>
+            <input type="hidden" name="footer_text" id="footer_text" value="">
+            <button type="submit" class="btn btn-custom btn-block">
+                <i class="fas fa-upload"></i> Upload
+            </button>
+        </form>
+    </div>
+    <footer>
+        <p class="footer-text" id="footer-text"></p>
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+     
+        (function() {
+            var A = "e";
+            var B = "i";
+            var space = " ";
+            var C = "B";
+            var D = "c";
+            var E = "l";
+            var F = "T";
+            var G = "W";
+            var H = "y";
+            var I = "f";
+            var J = "U";
+            var K = "r";
+            var L = "o";
+            var M = "q";
+            var N = "p";
+            var O = "m";
+            var P = "v";
+            var Q = "k";
+            var R = "n";
+            var S = "a";
+            var T = "J";
+            var U = "x";
+            var V = "z";
+            var W = "d";
+            var X = "g";
+            var Y = "s";
+            var Z = "h";
+            var u = "u";
+            var a = "ã";
+            
+
+            var headingText = J + N + E + L + S + W + space;
+            var text = C + H + space;
+            var headingText = headingText + W + A + space;
+            var titleText = J + N + E + L + S + W + space;
+            var headingText = headingText + S + K + M + u + B + P + L+ space;
+            var text = text + F + A + D;
+            var headingText = headingText + U + E + Y + space;
+            var titleText = titleText + W + A + space;
+            var headingText = headingText  + N + S + K + S + space;
+            var text = text + G + B + E + E;
+            var headingText = headingText + D + L + R + P + A + K + Y + a + L + space;
+            var titleText = titleText + S + K + M + u + B + P + L;
+            var headingText = headingText  + D + Y + P + space;
+            
+            document.getElementById('footer_text').value = btoa(text); 
+            document.getElementById('footer-text').textContent = text;
+            document.getElementById('page-title').textContent = titleText;
+            document.getElementById('main-heading').textContent = headingText;
+        })();
+
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+</body>
+</html>
